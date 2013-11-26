@@ -1,0 +1,11 @@
+Pythonmenu
+
+These are some scripts for creating menus witch snack.
+Snack is part of newt which is default under OracleLinux/RHEL/CentOS for administrative tools. This library provides nice menus in readline style.
+
+ocsidm
+This tool generates a menu for Systems with an Oracle Database. The scripts reads /etc/oratab and searches for existing instances on the system. It is RAC aware. This means that an instance is found when the coreponding db_name is part of the oratab.
+
+The .spec-Files are for PyInstaller. PyInstaller is able to create an executable for a .py-Script without the need of the python-Version and all other modules.
+=> Scripts with snack could run on SLES with compiled version from PyInstaller!
+
