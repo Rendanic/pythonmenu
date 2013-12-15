@@ -1,5 +1,5 @@
 # -*- mode: python -*-
-a = Analysis(['ocsidm.py'],
+a = Analysis(['../ocsidm.py'],
              pathex=[''],
              hiddenimports=[],
              hookspath=None,
