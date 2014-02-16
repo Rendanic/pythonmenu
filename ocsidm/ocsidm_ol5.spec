@@ -1,5 +1,5 @@
 Name:		ocsidm
-Version:	1.0
+Version:	1.1
 Release:        1
 Summary:	Pythonmenu for easy handling of ORACLE_SIDs from /etc/oratab
 License:	GPL
@@ -7,14 +7,18 @@ URL:		https://github.com/Rendanic/pythonmenu/tree/master/ocsidm
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-build
 Group:          Database/Tools
-Vendor:         Thorsten Bruhns (thorsten.bruhns@opitz-consulting.de)
+Vendor:         Thorsten Bruhns (thorsten.bruhns@opitz-consulting.com)
 
 
 #BuildRequires:	
-Requires:	newt-python
+#Requires:	newt-python
+
+# Turn off the brp-python-bytecompile script
+%global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 %description
-Pythonmenu for easy handling of ORACLE_SIDs from /etc/oratab
+Pythonmenu for easy handling of ORACLE_SIDs from /etc/oratab.
+The script reads /etc/oratab. Only SIDs with existing PFile or SPFile in $ORACLE_HOME/dbs are listed!
 This tool needs the Python Module snack.
 
 %prep
@@ -41,5 +45,7 @@ rm -rf %{_topdir}/BUILD/%{name}
 
 
 %changelog
-* Sun Dec 15 2013 Thorsten Bruhns <thorsten.bruhns@opitz-consulting.de> 
+* Sun Feb 16 2014 Thorsten Bruhns <thorsten.bruhns@opitz-consulting.com> (1.1)
+    - turn off byte compile while building the RPM
+* Sun Dec 15 2013 Thorsten Bruhns <thorsten.bruhns@opitz-consulting.com> (1.0)
     - initial release
