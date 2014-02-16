@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #
-# $Id: sshmenu.py 998 2013-10-05 09:29:25Z tbr $
+# Version 0.1
+# $Id$
 #
 # Hilfe http://www.wanware.com/tsgdocs/snack.html
 # http://sharats.me/the-ever-useful-and-neat-subprocess-module.html

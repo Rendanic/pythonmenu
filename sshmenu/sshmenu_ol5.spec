@@ -1,5 +1,5 @@
 Name:		ocsshmenu
-Version:	1.0
+Version:	1.1
 Release:        1
 Summary:	Pythonmenu for easy handling of ssh-connecions from a configfile.
 License:	GPL
@@ -13,6 +13,10 @@ Vendor:         Thorsten Bruhns (thorsten.bruhns@opitz-consulting.de)
 #BuildRequires:	
 Requires:	newt-python
 
+
+# Turn off the brp-python-bytecompile script
+%global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
+
 %description
 Pythonmenu for easy handling of ssh-connections.
 The scripts requires a parameter for a configuration file.
@@ -22,8 +26,6 @@ This tool needs the Python Module snack.
 %prep
 wget -nc https://github.com/Rendanic/pythonmenu/raw/master/sshmenu/sshmenu.py
 wget -nc https://github.com/Rendanic/pythonmenu/raw/master/sshmenu/hostlist.cfg
-
-%build
 
 %install
 mkdir -p $RPM_BUILD_ROOT/usr/bin
@@ -44,5 +46,7 @@ rm -rf %{_topdir}/BUILD/%{name}
 
 
 %changelog
-* Sun Dec 15 2013 Thorsten Bruhns <thorsten.bruhns@opitz-consulting.de> 
+* Sun Feb 16 2014 Thorsten Bruhns <thorsten.bruhns@opitz-consulting.de> (1.1)
+    - turn off byte compile while building the RPM
+* Sun Dec 15 2013 Thorsten Bruhns <thorsten.bruhns@opitz-consulting.de> (1.0)
     - initial release

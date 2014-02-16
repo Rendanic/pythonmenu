@@ -1,6 +1,6 @@
 #!/usr/bin/python
 """
- $Id: ocsidm.py 1022 2013-10-06 18:57:21Z tbr $
+ $Id$
 
  We check for an exisiting clusterware or oracle restart
  clusterware = no
@@ -14,7 +14,7 @@
 from snack import *
 import time, sys, os, commands
 
-version = '$Id: ocsidm.py 1022 2013-10-06 18:57:21Z tbr $'
+version = 'Versin 0.1'
 #orasidlist = []
 
 # Dictionary with ORACLE_SID and ORACLE_HOME as value
@@ -40,14 +40,14 @@ def execbash(orasid, orahome):
 
     if orasid == None or orahome == None:
         print "Required Parameter are None"
-        print "Returning to menu in 5 seconds"
-        time.sleep(5)
+        print "Returning to menu in 2 seconds"
+        time.sleep(2)
         return
 
     if os.path.isdir(orahome) == False :
         print "ORACLE_HOME not exisitng!"
-        print "Returning to menu in 5 seconds"
-        time.sleep(5)
+        print "Returning to menu in 2 seconds"
+        time.sleep(2)
     else:
         if env_LD_LIBRARY_PATH == None:
             # we had no LD_LIBRARY_PATH at startup
@@ -71,8 +71,8 @@ def execbash(orasid, orahome):
         # PS1 must be set with 'env' before starting the bash
         result = os.system('env PS1="[\u@\h \W] ("\$\{ORACLE_SID\}") \$ " bash  --noprofile --norc')
         if (result >> 8 ) != 0:
-            print "Returncode != 0. Waiting 5 seconds before returning back to menu"
-            time.sleep(5)
+            print "Returncode != 0. Waiting 2 seconds before returning back to menu"
+            time.sleep(2)
 
 
 def menuorasidlist(screen, defaultitem = 0):
